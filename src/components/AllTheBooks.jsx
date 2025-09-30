@@ -4,32 +4,38 @@ import history from "../data/history.json";
 import horror from "../data/horror.json";
 import romance from "../data/romance.json";
 import scifi from "../data/scifi.json";
-const category = {
-  fantasy,
-  history,
-  horror,
-  romance,
-  scifi,
-};
+
 import Card from "react-bootstrap/Card";
 import { Component } from "react";
 
 class AllTheBooks extends Component {
   state = {
-    selectedCategory: "fantasy",
+    selectedCategory: fantasy,
   };
   render() {
     return (
-      <Container>
-        <Button onClick={() => this.setState({ selectedCategory: "fantasy" })}> Fantasy</Button>
-        <Button onClick={() => this.setState({ selectedCategory: "history" })}> History</Button>
-        <Button onClick={() => this.setState({ selectedCategory: "horror" })}> Horror</Button>
-        <Button onClick={() => this.setState({ selectedCategory: "romance" })}> Romance</Button>
-        <Button onClick={() => this.setState({ selectedCategory: "scifi" })}> Scifi</Button>
-        <Row className="gap-2">
-          {category[this.state.selectedCategory].map((movie) => (
+      <Container className=" justify-content-center">
+        <Container className="d-flex justify-content-center gap-2 mb-3">
+          <Button className="btn btn-danger  " onClick={() => this.setState({ selectedCategory: fantasy })}>
+            Fantasy
+          </Button>
+          <Button className="btn btn-danger" onClick={() => this.setState({ selectedCategory: history })}>
+            History
+          </Button>
+          <Button className="btn btn-danger" onClick={() => this.setState({ selectedCategory: horror })}>
+            Horror
+          </Button>
+          <Button className="btn btn-danger" onClick={() => this.setState({ selectedCategory: romance })}>
+            Romance
+          </Button>
+          <Button className="btn btn-danger" onClick={() => this.setState({ selectedCategory: scifi })}>
+            Scifi
+          </Button>
+        </Container>
+        <Row className="gap-3">
+          {this.state.selectedCategory.map((movie) => (
             <Col key={movie.asin} className="">
-              <Card style={{ width: "18rem" }}>
+              <Card style={{ width: "18rem", height: "40rem" }}>
                 <Card.Img variant="top" src={movie.img} />
                 <Card.Body>
                   <Card.Title>{movie.title}</Card.Title>

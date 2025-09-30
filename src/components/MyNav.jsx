@@ -1,6 +1,6 @@
 const MyNav = function (props) {
   return (
-    <nav class="navbar navbar-expand-lg bg-dark ">
+    <nav class="navbar navbar-expand-lg bg-dark mb-3 ">
       <div class="container-fluid">
         <ul class="navbar-nav">
           <li class="nav-item">
